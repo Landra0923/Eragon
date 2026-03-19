@@ -2,6 +2,7 @@
 <html lang="es">
   <!-- ↓ TODA ESTA ES INFORMACIÓN DEL <head> QUE NO VEMOS EN LA PÁGINA ↓ -->
   <head>
+    <meta charset="UTF-8">
     <!-- ↓ Lugar para el favicon ↓ -->
     <link rel="icon" href="Elementos graficos/noun-dragon-8056419.png" />
     <!-- ↓ Lugar para el nombre de la página ↓ -->
@@ -13,39 +14,44 @@
 <body>
   <!--ESTE ES EL MENÚ DE OPCIONES-->
   <header>
-
     <nav class="MENÚ">
-
-      <a href="#">Inicio</a>
-      <a href="#">Lugares</a>
-      <a href="#">Personajes</a>
-      <a href="#">Sobre el proyecto</a>
+            <a href="index.html">Inicio</a>
+            <a href="lugares.html">Lugares</a>
+            <a href="personajes.html">Personajes</a>
+            <a href="proyecto.html">Sobre el proyecto</a>
     </nav>
   </header>
 
-
   <!--CONTENEDOR DEL MAPA-->
-  <div class="mapa-continer">
+  <div class="map-viewport">
 
-    <img src="Elementos graficos/Mapa Alagaesia DEFINITIVO.jpg"
-    class="mapa" id="mapa">
-
-  </div>
+    <img src="Elementos graficos/Mapa Alagaesia DEFINITIVO.jpg" id="mapa-img" class="mapa-intro" alt="Mapa de Alagaësia">
+    </div>
 
   <!--PANEL DE HISTORIA-->
-  <div id="story">
+  <main class="scroll-wrapper">
+    <section id="portada" class="nodo-narrativo" data-x="0" data-y="0" data-zoom="1">
+      <div class="contenedor-portada">
+        <h1 class="titulo-principal">Eragon, viajes por Alagaësia</h1>
 
-    <section class="panel intro">
-      <h1> El viaje de Eragon</h1>
-
-      <p>
-        Una emboscada en los bosques cercanos a Du Weldenvaren cambia el destino de Alagaësia para siempre
-      </p>
-
-      <p>
-        Arya transporta un huevo de dragón cuando es atacada por Durza y los urgalos. Antes de ser capturada,logra enviar mágicamente el huevo lejos...
-      </p>
+        <div class="narrativa-intro">
+          <h2>Prólogo: Sombra de Temor</h2>
+          <p>
+            El viento bramaba en plena noche transportando un aroma que cambiaría el mundo.
+            En la penumbra de los bosques cercanos a <em>Du Weldenvaren</em>, una Sombra de ojos granate aguarda...
+          </p>
+          <p>
+            Una emboscada mortal, un anillo de fuego de tres kilómetros y un destello esmeralda.
+            Antes de caer, una elfa logra enviar mágicamente un gran zafiro lejos del alcance del enemigo,
+            dejando a Durza el sombra con una victoria amarga y un misterio oculto entre las estrellas.
+          </p>
+        </div>
+        <button class="flecha-scroll" onclick="scrollhacianodo1()">
+          Seguir el rastro del zafiro →
+        </button>
+      </div>
     </section>
-  </div>
+  </main>
+
 </body>
 </html>
