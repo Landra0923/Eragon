@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- ↓ TODA ESTA ES INFORMACIÓN DEL <head> QUE NO VEMOS EN LA PÁGINA ↓ -->
-  <head>
+  <!--ESTE ESPACIO CORRESPONDE AL HEAD-->
+<head>
     <meta charset="UTF-8">
-    <!-- ↓ Lugar para el favicon ↓ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Lugar para el favicon y titulo-->
     <link rel="icon" href="Elementos_graficos/noun-dragon-8056419.png" />
-    <!-- ↓ Lugar para el nombre de la página ↓ -->
-    <title>Eragon, viajes por Alagaësia </title>
-    <!--Lugar para la tipografia-->
+    <title>Eragon, viajes por Alagaësia</title>
+
+    <!--Lugar para la tipografía-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Trocchi&display=swap" rel="stylesheet">
-    <!-- ↓ Lugar para enlazar nuestra página de estilos ↓ -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Trocchi&family=Almendra:wght@400;700&display=swap" rel="stylesheet">
 
+    <!--Lugar para enlazar la pagina de estilos-->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<!--AQUI COMIENZA TODO LO QUE VA EN EL BODY-->
 <body>
-  <!--ESTE ES EL MENÚ DE OPCIONES-->
-  <header>
-    <nav class="MENÚ">
+
+<!--Menú de opciones-->
+    <header>
+        <nav class="menu-navegacion">
             <a href="index.html">Inicio</a>
             <a href="lugares.html">Lugares</a>
             <a href="personajes.html">Personajes</a>
             <a href="proyecto.html">Sobre el proyecto</a>
-    </nav>
-  </header>
+        </nav>
+    </header>
 
-  <!--CONTENEDOR DEL MAPA-->
-  <div class="map-viewport">
-
-    <img src="Elementos_graficos/Mapa-Alagaesia-DEFINITIVO.jpg" id="mapa-img" class="mapa-intro" alt="Mapa de Alagaësia">
+<!--Contenedor del mapa-->
+    <div class="map-viewport">
+        <img src="Elementos_graficos/Mapa-Alagaesia-DEFINITIVO.jpg" id="mapa-img" alt="Mapa de Alagaësia">
+        <div class="capa-opacidad"></div>
     </div>
 
-  <!--PANEL DE HISTORIA-->
-  
-  <main class="scroll-wrapper">
-    <section id="portada" class="nodo-narrativo" data-x="0" data-y="0" data-zoom="1">
-      <div class="contenedor-portada">
-        <div class="cabecera-portada">
-    <h1 class="titulo-principal trocchi-regular">Eragon</h1>
-    <p class="subtitulo-principal trocchi-regular">Viajes por Alagaësia</p>
-        </div>
+<!--Contenedor de los nodos-->
+    <main class="scroll-wrapper">
 
-        <div class="narrativa-intro">
-          <h2>Prólogo: Sombra de Temor</h2>
-          <p>
-            El viento bramaba en plena noche transportando un aroma que cambiaría el mundo.
-            En la penumbra de los bosques cercanos a <em>Du Weldenvaren</em>, una Sombra de ojos granate aguarda...
-          </p>
-          <p>
-            Una emboscada mortal, un anillo de fuego de tres kilómetros y un destello esmeralda.
-            Antes de caer, una elfa logra enviar mágicamente un gran zafiro lejos del alcance del enemigo,
-            dejando a Durza el sombra con una victoria amarga y un misterio oculto entre las estrellas.
-          </p>
-        </div>
-        <button class="flecha-scroll" onclick="scrollhacianodo1()">
-          Seguir el rastro del zafiro →
-        </button>
-      </div>
-    </section>
-  </main>
+<!--Nodo 0-->  
+        <section id="nodo-0" class="nodo-narrativo activo" data-x="0" data-y="0" data-zoom="1">
+            <div class="contenedor-portada">
+                <h1 class="titulo-eragon">Eragon</h1>
+                <h2 class="subtitulo-viajes">Viajes por Alagaësia</h2>
+                
+                <div class="caja-texto-narrativo">
+                    <p>
+                        El viento rugía transportando un aroma que cambiaría el mundo. En la penumbra de los bosques, 
+                        un Sombra de pelo carmesí y ojos granate aguarda junto con doce úrgalos de brazos gruesos 
+                        y cuernos retorcidos acechando entre los arbustos. 
+                    </p>
+                    <p>
+                        La emboscada es perfecta. Tres jinetes élficos emergen de la oscuridad. Entre ellos destaca una elfa 
+                        de cabellera azabache, custodiando con recelo una bolsa sobre su regazo. Un destello rojo, 
+                        un grito de guerra en la lengua antigua —<strong>¡Garjzla!</strong>— y el bosque estalla en llamas. 
+                    </p>
+                    <p>
+                        Antes de caer, la elfa alza un gran zafiro y pronuncia un último hechizo. En un fogonazo esmeralda, 
+                        la piedra desaparece, dejando al Sombra con una victoria amarga y un misterio que cruzará montañas.
+                    </p>
+                </div>
 
+                <button class="boton-scroll" onclick="irAlSiguienteNodo()">
+                    Sigue el rastro del zafiro →
+                </button>
+            </div>
+        </section>
+
+        </main>
+<!--Lugar para enlazar la pagina de java-->
+    <script src="script.js"></script>
 </body>
 </html>

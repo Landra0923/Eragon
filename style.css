@@ -1,0 +1,146 @@
+/* ↓ VARIABLES (Mismos colores) ↓ */
+:root {
+    --azul-zafiro: #0074D9; 
+    --azul-oscuro: #001f3f; /* Fondo sólido del menú */
+    --blanco-pergamino: #fdfdfd;
+    --fuente-titulos: 'Trocchi', serif;
+    --fuente-texto: 'Almendra', serif; 
+}
+
+/* ↓ CONFIGURACIÓN GLOBAL ↓ */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #000;
+    color: var(--blanco-pergamino);
+    overflow-x: hidden; 
+}
+
+/* ↓ EL MENÚ (CAPA SUPERIOR) ↓ */
+header {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    padding: 15px 0;
+    text-align: center;
+    background-color: var(--azul-oscuro);
+    border-bottom: 2px solid var(--azul-zafiro);
+    /* Sombra de caja sutil, no neón */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+.menu-navegacion a {
+    font-family: var(--fuente-titulos);
+    color: var(--blanco-pergamino);
+    text-decoration: none;
+    margin: 0 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.menu-navegacion a:hover {
+    color: var(--azul-zafiro);
+    transform: scale(1.1);
+}
+
+/* ↓ EL MAPA (FONDO) ↓ */
+.map-viewport {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; 
+}
+
+#mapa-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; /* Subimos un poco para que se vea el mapa */
+    transition: transform 2s ease-in-out;
+}
+
+/* ↓ 3. TÍTULO SIN NEÓN ↓ */
+.titulo-eragon {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(4rem, 12vw, 7rem);
+    color: var(--azul-zafiro);
+    margin: 0;
+    line-height: 1;
+    /* Eliminado el brillo neón */
+    /* Usamos una sombra negra nítida para dar relieve, como grabado */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+}
+
+.subtitulo-viajes {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: var(--blanco-pergamino);
+    margin-top: 5px;
+    /* Sombra nítida para legibilidad */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+}
+
+/* ↓ 1. CONTENEDOR DE TEXTO (CENTRADO TOTAL) ↓ */
+.scroll-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.nodo-narrativo {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    padding: 130px 10% 60px 10%; /* Espacio por el menú sólido */
+    box-sizing: border-box;
+    text-align: center;     /* Centra el texto dentro del nodo */
+}
+
+/* ↓ 4. CAJA DE TEXTO: LEGIBLE Y GRUESA ↓ */
+.caja-texto-narrativo {
+    background: transparent; 
+    max-width: 800px;
+    margin: 30px auto; /* Centrado automático */
+}
+
+.caja-texto-narrativo p {
+    font-family: var(--fuente-texto);
+    font-size: 1.5rem;    /* Tamaño legible */
+    font-weight: 700;     /* Grosor extra (Bold) para legibilidad */
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #fff;
+    /* Sombra de texto nítida y oscura, como grabado en piedra */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 1), -1px -1px 0 rgba(0,0,0,1);
+}
+
+/* ↓ BOTÓN DE SCROLL (Mismo estilo azul) ↓ */
+.boton-scroll {
+    background: transparent;
+    border: 2px solid var(--azul-zafiro);
+    color: var(--blanco-pergamino);
+    padding: 15px 40px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+    margin-top: 15px;
+    /* Sombra nítida */
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.boton-scroll:hover {
+    background-color: var(--azul-zafiro);
+    color: white;
+    /* Brillo de caja, no neón */
+    box-shadow: 0 0 15px rgba(0, 116, 217, 0.5);
+}
