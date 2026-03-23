@@ -1,34 +1,40 @@
-// Función para el botón de la portada
-function irAlSiguienteNodo() {
-    // Busca el siguiente nodo (en este caso el Nodo 1 cuando lo crees)
-    const proximoNodo = document.getElementById("nodo-1");
-    if (proximoNodo) {
-        proximoNodo.scrollIntoView({ behavior: 'smooth' });
+function irAlNodo(numeroNodo) {
+    // 1. Obtener el elemento del nodo seleccionado
+    const nodoDestino = document.getElementById(`nodo-${numeroNodo}`);
+    if (!nodoDestino) return;
+
+    // 2. Cambiar visibilidad de los textos
+    const todosLosNodos = document.querySelectorAll('.nodo-contenido');
+    todosLosNodos.forEach(nodo => nodo.classList.remove('activo'));
+    nodoDestino.classList.add('activo');
+
+    // 3. Extraer coordenadas y zoom de los atributos data-
+    const x = nodoDestino.getAttribute('data-x');
+    const y = nodoDestino.getAttribute('data-y');
+    const zoom = nodoDestino.getAttribute('data-zoom');
+
+    // 4. Referencias a los elementos del mapa
+    const mapa = document.getElementById('mapa-img');
+    const marcador = document.getElementById('marcador-punto');
+
+    // 5. Aplicar la lógica de movimiento
+    if (numeroNodo === 0) {
+        // Reseteo para la portada
+        mapa.style.transformOrigin = "center center";
+        mapa.style.transform = "scale(1)";
+        marcador.style.display = "none";
     } else {
-        console.log("Aún no has creado el Nodo 1");
+        // Movimiento de precisión
+        // El transform-origin actúa como el "anclaje" del zoom
+        mapa.style.transformOrigin = `${x} ${y}`;
+        mapa.style.transform = `scale(${zoom})`;
+
+        // Colocar el marcador exactamente en el mismo punto
+        marcador.style.display = "block";
+        marcador.style.left = x;
+        marcador.style.top = y;
     }
 }
 
-// Lógica para detectar el scroll y mover el mapa
-const mapa = document.getElementById('mapa-img');
-const nodos = document.querySelectorAll('.nodo-narrativo');
-
-const observerOptions = {
-    threshold: 0.6 // Se activa cuando el 60% del nodo es visible
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const x = entry.target.getAttribute('data-x');
-            const y = entry.target.getAttribute('data-y');
-            const zoom = entry.target.getAttribute('data-zoom');
-
-            // Aplicar transformación al mapa
-            // El translate(-50%, -50%) es para que el zoom sea desde el centro
-            mapa.style.transform = `scale(${zoom}) translate(${x}px, ${y}px)`;
-        }
-    });
-}, observerOptions);
-
-nodos.forEach(nodo => observer.observe(nodo));
+// Iniciar en la portada al cargar
+window.onload = () => irAlNodo(0);
