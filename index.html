@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eragon: Viajes por Alagaësia</title>
+    <link rel="icon" href="Elementos_graficos/Favicon-de-dragon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Trocchi&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -21,36 +22,96 @@
     </header>
 
     <main class="contenedor-principal">
-        
         <section class="seccion-mapa">
             <div class="visor-recorte">
                 <img src="Elementos_graficos/Mapa-Alagaesia-DEFINITIVO.jpg" id="mapa-img" alt="Mapa de Alagaësia">
-                <div id="marcador-punto" class="indicador-mapa"></div>
+                <div id="marcador-punto" class="indicador-mapa">
+                    <span class="etiqueta-mapa"></span>
+                </div>
             </div>
         </section>
 
         <aside class="seccion-texto">
             
             <div id="nodo-0" class="nodo-contenido activo" data-x="50%" data-y="50%" data-zoom="1">
-                <h1 class="titulo-principal">Eragon</h1>
-                <h2 class="subtitulo">Viajes por Alagaësia</h2>
-                <p>El viento rugía transportando un aroma que cambiaría el mundo. Explora la narrativa espacial de Alagaësia a través de sus puntos clave.</p>
-                <button class="btn-accion" onclick="irAlNodo(1)">Comenzar el viaje →</button>
+                <h1 class="titulo-eragon">Eragon</h1>
+                <h2 class="titulo-sub">Viajes por Alagaësia</h2>
+                <div class="cuerpo-texto">
+                    <p>El viento rugía transportando un aroma que cambiaría el mundo. En la penumbra de los bosques, un Sombra de pelo carmesí y ojos granate aguarda junto con doce úrgalos de brazos gruesos y cuernos retorcidos acechando entre los arbustos. La emboscada es perfecta. </p>
+                    <p>Tres jinetes élficos emergen de la oscuridad. Entre ellos destaca una elfa de cabellera azabache, custodiando con recelo una bolsa sobre su regazo. Un destello rojo, un grito de guerra en la lengua antigua —¡Garjzla!— y el bosque estalla en llamas. Antes de caer, la elfa alza un gran zafiro y pronuncia un último hechizo. En un fogonazo esmeralda, la piedra desaparece, dejando al Sombra con una victoria amarga y un misterio que cruzará montañas.</p>
+                </div>
+                <div class="controles-navegacion">
+                    <button class="btn-accion" onclick="irAlNodo(1)">Sigue el rastro del zafiro →</button>
+                </div>
             </div>
 
-            <div id="nodo-1" class="nodo-contenido" data-x="32%" data-y="11%" data-zoom="3.5">
-                <h2 class="titulo-nodo">El Hallazgo</h2>
-                <div class="tabs-info">
-                    <button class="tab-btn activo">Historia</button>
-                    <button class="tab-btn">Evolución</button>
+            <div id="nodo-1" class="nodo-contenido" data-x="34%" data-y="11%" data-zoom="3.5">
+                <h2 class="titulo-nodo">Las Vertebradas</h2>
+                
+                <div class="contenedor-tabs">
+                    <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-1')">Historia</button>
+                    <button class="tab-btn" onclick="cambiarTab(event, 'evolucion-1')">Evolución</button>
                 </div>
+
                 <div class="cuerpo-texto">
-                    <p>"El silencio de los glaciares solo se rompe por el crujido de la nieve bajo las botas de Eragon. A sus quince años, es el único cazador de Carvahall que se atreve a internarse en las cimas de las Vertebradas..."</p>
-                    <p>En el centro de un círculo de hierba calcinada, yace una gema de un azul oscuro impecable.</p>
+                    <div id="historia-1" class="tab-contenido activo">
+                        <p>El silencio de los glaciares solo se rompe por el crujido de la nieve bajo las botas de Eragon. A sus quince años, es el único cazador de Carvahall que se atreve a internarse en las cimas de las Vertebradas, un lugar donde las leyendas dicen que ejércitos enteros han desaparecido. Bajo una luna llena que se mece entre picos rojizos, el rastro de una cierva herida lo guía hacia una cañada oculta por la bruma.</p>
+                        <p>La paz de la caza se quiebra con una explosión que sacude los pinos y vuela las hojas de los árboles. En el centro de un círculo de hierba calcinada, donde el humo aún serpentea entre las sombras, yace una gema de un azul oscuro impecable. Es lisa como la seda y fría como el hielo, recorrida por finas nervaduras blancas. Eragon la reclama sin saber si es un regalo o una maldición, ignorando que ha recogido un relámpago dormido que cambiará el destino de Alagaësia.</p>
+                    </div>
+
+                    <div id="evolucion-1" class="tab-contenido">
+                        <ul class="lista-evolucion">
+                            <li><strong>Eragon:</strong> Explorador y cazador, en este momento la inocencia es su bandera, solo le preocupa ser útil en su hogar y tener algo para comer en la mesa. </li>
+                        </ul>
+                        <div class="contenedor-img-personaje">
+                            <img src="Elementos_graficos/Eragon-encuentra-saphira.webp" alt="Eragon el cazador" class="img-evolucion">
+                        </div>
+                    </div>
                 </div>
-                <div class="navegacion-nodos">
+
+                <div class="controles-navegacion">
                     <button class="btn-secundario" onclick="irAlNodo(0)">← Volver</button>
-                    <button class="btn-accion">Continuar →</button>
+                    <button class="btn-accion" onclick="irAlNodo(2)">Acompaña a Eragon →</button>
+                </div>
+            </div>
+            
+            <div id="nodo-2" class="nodo-contenido" data-x="34%" data-y="13%" data-zoom="3">
+                <h2 class="titulo-nodo">Carvahall</h2>
+                
+                <div class="contenedor-tabs">
+                    <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-2')">Historia</button>
+                    <button class="tab-btn" onclick="cambiarTab(event, 'evolucion-2')">Evolución</button>
+                </div>
+                
+                <div class="cuerpo-texto">
+                    <div id="historia-2" class="tab-contenido activo">
+                        <p>Desde las cataratas de Igualda, el río Anora serpentea por el valle de Palancar hasta bañar los cimientos de Carvahall. Es un refugio de casas de troncos y techos de paja, un punto aislado en el mapa donde el humo de la leña y el aroma a guisos intentan ocultar la dureza de la vida fronteriza.</p>
+                        <p>En la carnicería de Sloan, el aire es pesado. El intento de Eragon por cambiar la gema azul por carne terminó en una disputa violenta con el carnicero. Solo la intervención de Horst, el herrero, evitó que Eragon regresara con las manos vacías, dejando claro que el pueblo está al límite por el miedo a lo desconocido.</p>
+                        <p>La noche se cierra sobre el valle, y las luces de Carvahall brillan con recelo. En la taberna de Morn, mercaderes demacrados traen noticias que hielan la sangre: hablan de los Vardenos rebelándose en el sur y de Úrgalos desplazándose. Pero es la voz de Brom la que devuelve a la vida el mito de los Jinetes.</p>
+                    </div>
+
+                    <div id="evolucion-2" class="tab-contenido">
+                        <ul class="lista-evolucion">
+                            <li><strong>Sloan:</strong> Carnicero del pueblo, es un hombre desagradable de mal carácter quien ama profundamente a su única hija Katrina. Es un hombre viudo (no es como que eso le de derecho a ser un imbécil) Siente un rechazo absoluto por las Vertebradas, debido a que su esposa, Ismira, murió al caer en las cataratas de Igualda un año antes de la llegada de Eragon al pueblo. Esta es la razón por la que se niega violentamente a aceptar la gema que Eragon encontró en esas montañas.</li>
+                        </ul>
+                        <div class="contenedor-img-personaje">
+                            <img src="Elementos_graficos/Sloan-imbecil.png"Sloan el carnicero" class="img-evolucion">
+                        </div>
+                        
+                        <hr class="separador-personaje">
+                        
+                        <ul class="lista-evolucion">
+                            <li><strong>Horst:</strong> El herrero del pueblo, es amigable, así como intimidante, todos en el pueblo lo respetan, siempre ayuda a Eragon y su familia cuando puede.(sinceramente de los mejores personajes). </li>
+                        </ul>
+                        <div class="contenedor-img-personaje">
+                            <img src="Elementos_graficos/Horst-Herrero.png" alt="Horst el herrero" class="img-evolucion">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controles-navegacion">
+                    <button class="btn-secundario" onclick="irAlNodo(1)">← Volver</button>
+                    <button class="btn-accion" onclick="irAlNodo(3)">El despertar del Jinete →</button>
                 </div>
             </div>
 

@@ -1,164 +1,124 @@
-/* CONFIGURACIÓN GLOBAL */
 :root {
     --azul-zafiro: #0074D9;
     --azul-oscuro: #001f3f;
-    --fondo-negro: #050505;
-    --blanco-pergamino: #fdfdfd;
     --fuente-titulos: 'Trocchi', serif;
     --fuente-cuerpo: 'Open Sans', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body, html {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    color: white;
+    width: 100%; height: 100%;
+    background-color: black; color: white;
     font-family: var(--fuente-cuerpo);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: flex; flex-direction: column; overflow: hidden;
 }
 
 /* HEADER */
 .header-navegacion {
-    height: 70px;
-    background: var(--azul-oscuro);
+    height: 70px; background: var(--azul-oscuro);
     border-bottom: 2px solid var(--azul-zafiro);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100; flex-shrink: 0;
 }
 
 .btn-menu {
-    background: transparent;
-    border: none;
-    color: white;
-    font-family: var(--fuente-titulos);
-    font-size: 1rem;
-    margin: 0 15px;
-    cursor: pointer;
-    transition: color 0.3s;
+    background: transparent; border: none; color: white;
+    font-family: var(--fuente-titulos); margin: 0 15px;
+    cursor: pointer; font-size: 1.1rem;
 }
 
-.btn-menu:hover {
-    color: var(--azul-zafiro);
-}
+/* ESTRUCTURA PRINCIPAL */
+.contenedor-principal { flex-grow: 1; display: flex; width: 100%; overflow: hidden; }
 
-/* CONTENEDOR DIVIDIDO */
-.contenedor-principal {
-    flex-grow: 1;
-    display: flex;
-    width: 100%;
-}
-
-/* MAPA (70%) */
-.seccion-mapa {
-    flex: 0 0 70%;
-    position: relative;
-    background: #111;
-    overflow: hidden;
-    border-right: 1px solid #333;
-}
-
-.visor-recorte {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
+.seccion-mapa { flex: 0 0 70%; position: relative; background: #000; overflow: hidden; }
 
 #mapa-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform-origin 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.8;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform-origin 1.5s ease;
 }
 
-/* MARCADOR AZUL */
+/* MARCADOR */
 .indicador-mapa {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background: var(--azul-zafiro);
-    border: 2px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    z-index: 10;
-    box-shadow: 0 0 20px var(--azul-zafiro);
+    position: absolute; width: 24px; height: 24px;
+    background: var(--azul-zafiro); border: 2px solid white; border-radius: 50%;
+    transform: translate(-50%, -50%); display: none; z-index: 10;
+    box-shadow: 0 0 15px var(--azul-zafiro);
 }
 
-/* TEXTO (30%) */
-.seccion-texto {
-    flex: 0 0 30%;
-    background: var(--fondo-negro);
-    padding: 40px;
-    overflow-y: auto;
+.etiqueta-mapa {
+    position: absolute; left: 35px; top: 50%; transform: translateY(-50%);
+    white-space: nowrap; font-family: var(--fuente-titulos);
+    background: rgba(0, 31, 63, 0.9); padding: 5px 15px;
+    border-radius: 4px; border-left: 4px solid var(--azul-zafiro);
 }
 
-.nodo-contenido {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.nodo-contenido.activo {
+/* PANEL LATERAL DE TEXTO */
+.seccion-texto { 
+    flex: 0 0 30%; 
+    background: #050505; 
+    padding: 30px; 
+    height: calc(100vh - 70px);
+    overflow-y: auto; 
     display: flex;
+    flex-direction: column;
+    border-left: 1px solid #222;
 }
 
-/* TIPOGRAFÍA Y BOTONES */
-.titulo-principal { font-family: var(--fuente-titulos); font-size: 3.5rem; color: var(--azul-zafiro); }
-.subtitulo { font-family: var(--fuente-titulos); font-size: 1.2rem; margin-top: -10px; opacity: 0.7; }
-.titulo-nodo { font-family: var(--fuente-titulos); font-size: 2.2rem; }
+.seccion-texto::-webkit-scrollbar { width: 6px; }
+.seccion-texto::-webkit-scrollbar-thumb { background: var(--azul-zafiro); border-radius: 3px; }
 
-.cuerpo-texto p {
-    line-height: 1.8;
-    margin-bottom: 15px;
-    font-weight: 300;
+/* NODOS */
+.nodo-contenido { display: none; flex-direction: column; gap: 20px; min-height: 100%; }
+.nodo-contenido.activo { display: flex; }
+
+.titulo-eragon { font-family: var(--fuente-titulos); font-size: 3.5rem; color: var(--azul-zafiro); }
+.titulo-nodo { font-family: var(--fuente-titulos); font-size: 2rem; color: white; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+.cuerpo-texto p { line-height: 1.6; margin-bottom: 15px; text-align: justify; color: #ccc; font-size: 0.95rem; }
+
+/* TABS (Historia / Evolución) */
+.contenedor-tabs { display: flex; gap: 5px; margin-bottom: 15px; }
+.tab-btn {
+    flex: 1; padding: 10px; background: #111; border: 1px solid var(--azul-zafiro);
+    color: white; cursor: pointer; transition: 0.3s; font-family: var(--fuente-titulos);
+}
+.tab-btn.activo { background: var(--azul-zafiro); box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+
+.tab-contenido { display: none; animation: fadeIn 0.5s; }
+.tab-contenido.activo { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* PERSONAJES E IMÁGENES */
+.lista-evolucion { list-style: none; margin-bottom: 10px; }
+.lista-evolucion li { margin-bottom: 10px; border-left: 3px solid var(--azul-zafiro); padding-left: 10px; }
+
+.contenedor-img-personaje {
+    width: 100%; border: 1px solid #333; padding: 4px; background: #111; margin-bottom: 10px;
+}
+.img-evolucion { width: 100%; height: auto; display: block; filter: contrast(1.1); }
+
+.separador-personaje {
+    border: 0; height: 1px; 
+    background: linear-gradient(to right, transparent, var(--azul-zafiro), transparent);
+    margin: 25px 0;
+}
+
+/* BOTONES DE NAVEGACIÓN */
+.controles-navegacion {
+    margin-top: auto; padding-top: 25px; display: flex; gap: 10px;
 }
 
 .btn-accion {
-    padding: 15px 25px;
-    background: var(--azul-zafiro);
-    color: white;
-    border: none;
-    font-family: var(--fuente-titulos);
-    cursor: pointer;
-    font-size: 1rem;
+    flex: 2; padding: 14px; background: var(--azul-zafiro); color: white; border: none;
+    font-family: var(--fuente-titulos); cursor: pointer; transition: 0.3s; font-size: 0.9rem;
 }
 
 .btn-secundario {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
+    flex: 1.2; padding: 14px; background: transparent; border: 1px solid white;
+    color: white; font-family: var(--fuente-titulos); cursor: pointer; transition: 0.3s; font-size: 0.8rem;
 }
 
-.tabs-info {
-    display: flex;
-    gap: 0;
-    margin-top: 10px;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid var(--azul-zafiro);
-    color: white;
-    cursor: pointer;
-}
-
-.tab-btn.activo {
-    background: var(--azul-zafiro);
-}
+.btn-accion:hover { background: #0056a3; transform: translateY(-2px); }
+.btn-secundario:hover { background: white; color: black; }

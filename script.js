@@ -1,40 +1,45 @@
-function irAlNodo(numeroNodo) {
-    // 1. Obtener el elemento del nodo seleccionado
-    const nodoDestino = document.getElementById(`nodo-${numeroNodo}`);
-    if (!nodoDestino) return;
+function irAlNodo(n) {
+    const destino = document.getElementById(`nodo-${n}`);
+    if (!destino) return;
 
-    // 2. Cambiar visibilidad de los textos
-    const todosLosNodos = document.querySelectorAll('.nodo-contenido');
-    todosLosNodos.forEach(nodo => nodo.classList.remove('activo'));
-    nodoDestino.classList.add('activo');
+    // Cambiar visibilidad
+    document.querySelectorAll('.nodo-contenido').forEach(node => node.classList.remove('activo'));
+    destino.classList.add('activo');
 
-    // 3. Extraer coordenadas y zoom de los atributos data-
-    const x = nodoDestino.getAttribute('data-x');
-    const y = nodoDestino.getAttribute('data-y');
-    const zoom = nodoDestino.getAttribute('data-zoom');
+    // RESET DEL SCROLL: Importante para que el nuevo texto empiece arriba
+    document.querySelector('.seccion-texto').scrollTo({ top: 0, behavior: 'smooth' });
 
-    // 4. Referencias a los elementos del mapa
+    // Datos del mapa
+    const x = destino.getAttribute('data-x');
+    const y = destino.getAttribute('data-y');
+    const zoom = destino.getAttribute('data-zoom');
+    const h2 = destino.querySelector('h2');
+
     const mapa = document.getElementById('mapa-img');
     const marcador = document.getElementById('marcador-punto');
+    const etiqueta = marcador.querySelector('.etiqueta-mapa');
 
-    // 5. Aplicar la lógica de movimiento
-    if (numeroNodo === 0) {
-        // Reseteo para la portada
+    if (n === 0) {
         mapa.style.transformOrigin = "center center";
         mapa.style.transform = "scale(1)";
         marcador.style.display = "none";
     } else {
-        // Movimiento de precisión
-        // El transform-origin actúa como el "anclaje" del zoom
         mapa.style.transformOrigin = `${x} ${y}`;
         mapa.style.transform = `scale(${zoom})`;
-
-        // Colocar el marcador exactamente en el mismo punto
         marcador.style.display = "block";
         marcador.style.left = x;
         marcador.style.top = y;
+        etiqueta.innerText = h2 ? h2.innerText : "";
     }
 }
 
-// Iniciar en la portada al cargar
+function cambiarTab(e, tabId) {
+    const parent = e.currentTarget.closest('.nodo-contenido');
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+    parent.querySelectorAll('.tab-contenido').forEach(c => c.classList.remove('activo'));
+    
+    e.currentTarget.classList.add('activo');
+    document.getElementById(tabId).classList.add('activo');
+}
+
 window.onload = () => irAlNodo(0);
