@@ -14,7 +14,7 @@
 
     <header class="header-navegacion">
         <nav>
-            <button class="btn-menu" onclick="irAlNodo(0)">Inicio</button>
+            <button class="btn-menu" onclick="irAlNodo(0)">Modo Historia</button>
             <button class="btn-menu">Lugares</button>
             <button class="btn-menu">Personajes</button>
             <button class="btn-menu">Sobre el proyecto</button>
@@ -47,7 +47,8 @@
 
             <div id="nodo-1" class="nodo-contenido" data-x="34%" data-y="11%" data-zoom="3.5">
                 <h2 class="titulo-nodo">Las Vertebradas</h2>
-                
+                <span class="texto-guia">Explora la historia con un resumen o por medio de la evolución de los personajes.</span>
+
                 <div class="contenedor-tabs">
                     <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-1')">Historia</button>
                     <button class="tab-btn" onclick="cambiarTab(event, 'evolucion-1')">Evolución</button>
@@ -77,7 +78,8 @@
             
             <div id="nodo-2" class="nodo-contenido" data-x="34%" data-y="13%" data-zoom="3">
                 <h2 class="titulo-nodo">Carvahall</h2>
-                
+                <span class="texto-guia">Explora la historia con un resumen o por medio de la evolución de los personajes.</span>
+
                 <div class="contenedor-tabs">
                     <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-2')">Historia</button>
                     <button class="tab-btn" onclick="cambiarTab(event, 'evolucion-2')">Evolución</button>
@@ -117,7 +119,8 @@
 
             <div id="nodo-3" class="nodo-contenido" data-x="32%" data-y="13%" data-zoom="3.5">
                 <h2 class="titulo-nodo">La Granja de Garrow</h2>
-                
+                <span class="texto-guia">Explora la historia con un resumen o por medio de la evolución de los personajes.</span>
+
                 <div class="contenedor-tabs">
                     <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-3')">Historia</button>
                     <button class="tab-btn" onclick="cambiarTab(event, 'evolucion-3')">Evolución</button>
@@ -163,7 +166,8 @@
 
             <div id="nodo-4" class="nodo-contenido" data-x="34%" data-y="13%" data-zoom="4">
     <h2 class="titulo-nodo">Carvahall 2</h2>
-    
+    <span class="texto-guia">Explora la historia con un resumen o por medio de la evolución de los personajes.</span>
+
     <div class="contenedor-tabs">
         <button class="tab-btn activo" onclick="cambiarTab(event, 'historia-4')">Historia</button>
         <button class="tab-btn" onclick="cambiarTab(event, 'cuentos-4')">Cuentos de Brom</button>
@@ -177,15 +181,17 @@
         </div>
 
         <div id="cuentos-4" class="tab-contenido">
-            <div class="pergamino-relato">
-                <h3 class="subtitulo-lore">Carvahall 2</h3>
-                <p>En la época dorada, los Jinetes mantenían la paz y las razas eran aliadas. Todo cambió con <strong>Galbatorix</strong>. Tras perder a su dragón en una emboscada de úrgalos, la locura lo consumió. Al negársele un nuevo huevo, robó un dragón recién nacido con la ayuda de Morzan, masacró a los Jinetes y se proclamó Rey de Alagaësía.</p>
+            <ul class="lista-evolucion">
+                <li>
+                    <strong>La caída de los jinetes</strong>
+                    En la época dorada, los Jinetes mantenían la paz y las razas eran aliadas. Todo cambió con <strong>Galbatorix</strong>. Tras perder a su dragón en una emboscada de úrgalos, la locura lo consumió. Al negársele un nuevo huevo, robó un dragón recién nacido con la ayuda de Morzan, masacró a los Jinetes y se proclamó Rey de Alagaësía.
+                </li>
                 
-                <hr class="separador-sutil">
-                
-                <h3 class="subtitulo-lore">Orígenes de la Alianza</h3>
-                <p>Los elfos, provenientes de <em>Alalea</em>, cazaron a un dragón pensando que eran bestias, desatando una guerra sangrienta. La paz llegó gracias a un elfo llamado <strong>Eragon</strong>, quien encontró un huevo y crió a la criatura en secreto, convenciendo a ambas razas de detener la matanza. Los humanos se unirían a este pacto tres siglos después.</p>
-            </div>
+                <hr class="separador-personaje"><li>
+                    <strong>Orígenes de la Alianza:</strong>
+                    Los elfos, provenientes de <em>Alalea</em>, cazaron a un dragón pensando que eran bestias, desatando una guerra sangrienta. La paz llegó gracias a un elfo llamado <strong>Eragon</strong>, quien encontró un huevo y crió a la criatura en secreto, convenciendo a ambas razas de detener la matanza. Los humanos se unirían a este pacto tres siglos después.
+                </li>
+             </ul>     
         </div>
 
         <div id="evolucion-4" class="tab-contenido">
